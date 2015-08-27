@@ -33,7 +33,7 @@ post '/post/:id/delete' do
   redirect to('/')
 end
 
-put '/post/:id/save' do
+post '/post/:id/save' do
   title = params[:title]
   content = params[:content]
   new_tags = params[:tags]
@@ -51,4 +51,6 @@ put '/post/:id/save' do
   end
 
   current_post.save if current_post.valid?
+
+  redirect to("/post/#{current_post.id}")
 end

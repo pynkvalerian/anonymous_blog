@@ -1,24 +1,28 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Anonymous Blog</h1>
 
-  <button id="create_post">Create new</button>
+  <div class="create_post">
+    <button id="create_post">Create new</button>
 
-  <form action="/post/new" method="post">
+    <form action="/post/new" method="post">
 
-    <input name="title" type="text" placeholder="Title">
-    <textarea name="content"></textarea>
-    <% Tag.all.each_with_index do |tag, i| %>
-      <input name=<%="tags[" + tag.name + "]"%> type="checkbox" > <%=tag.name%>
-    <% end %>
-    <input type="submit" value="Submit">
+      <input name="title" type="text" placeholder="Title">
+      <textarea name="content"></textarea>
+      <% Tag.all.each_with_index do |tag, i| %>
+        <input name=<%="tags[" + tag.name + "]"%> type="checkbox" > <%=tag.name%>
+      <% end %>
+      <input type="submit" value="Submit">
 
-  </form>
+    </form>
+  </div>
+
+  <h2>Search Posts</h2>
 
   <form action="/tags" method="post">
     <% Tag.all.each_with_index do |tag, i| %>
       <input name=<%="tags[" + tag.name + "]"%> type="checkbox" > <%=tag.name%>
     <% end %>
+    <br><br>
     <input type="submit" value="Filter">
   </form>
 

@@ -1,13 +1,13 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Anonymous Blog</h1>
 
-<form action='post/:id/save' method='put'>
-  <input name="title" type="text" value="<%=@post.title%>">
-    <textarea name="content"><%=@post.content%></textarea>
-    <% Tag.all.each_with_index do |tag, i| %>
-      <input name=<%="tags[" + tag.name + "]"%> type="checkbox" > <%=tag.name%>
-    <% end %>
-  <input type="submit" value="Submit">
+  <form action='/post/<%= @post.id %>/save' method='post'>
+    <input name="title" type="text" value="<%=@post.title%>">
+      <textarea name="content"><%=@post.content%></textarea>
+      <% Tag.all.each_with_index do |tag, i| %>
+        <input name=<%="tags[" + tag.name + "]"%> type="checkbox" > <%=tag.name%>
+      <% end %>
+    <input type="submit" value="Submit">
+  </form>
 
 </div>
