@@ -3,13 +3,16 @@
   <p>Hello, world!</p>
 
   <button id="create_post">Create new</button>
+
   <form action="/post/new" method="post">
+
     <input name="title" type="text" placeholder="Title">
     <textarea name="content"></textarea>
     <% Tag.all.each_with_index do |tag, i| %>
       <input name=<%="tags[" + tag.name + "]"%> type="checkbox" > <%=tag.name%>
     <% end %>
     <input type="submit" value="Submit">
+
   </form>
 
   <div class="posts"></div>
