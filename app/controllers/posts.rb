@@ -10,7 +10,7 @@ post '/post/new' do
     @tag.posts << @post
   end
 
-  @post.save
+  @post.save if @post.valid?
 
   redirect to("/post/#{@post.id}")
 end
@@ -50,5 +50,5 @@ put '/post/:id/save' do
     @tag.posts << current_post
   end
 
-  current_post.save
+  current_post.save if current_post.valid?
 end
