@@ -2,6 +2,7 @@
   <h1>Welcome to Sinatra!</h1>
   <p>Hello, world!</p>
 
+   <button id="return"><a href="/">Return</a></button>
   <button id="edit"><a href="/post/<%= @post.id %>/edit">Edit</a></button>
   <form id="delete" action="/post/<%= @post.id %>/delete" method="post">
     <input type="submit" value="Delete">
@@ -12,6 +13,4 @@
     <%= @post.content %>
   </p>
 
-
-  <div class="posts"></div>
 </div>
